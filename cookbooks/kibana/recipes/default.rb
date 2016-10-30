@@ -8,9 +8,10 @@
 #
 # Tested using Ubuntu 14.04 LTS
 # Installs kibana 5.0.0
+# Default home dir: /usr/share/kibana
 
 #Download kibana deb package
-execute "Download elasticsearch deb" do
+execute "Download kibana deb" do
 	command "wget -nv https://artifacts.elastic.co/downloads/kibana/kibana-5.0.0-amd64.deb"
 	cwd "/tmp"
 	user "root"
