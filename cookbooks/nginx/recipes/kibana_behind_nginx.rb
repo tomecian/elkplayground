@@ -11,17 +11,17 @@
 # 
 #Set defaults if no attributes are passed
 
-if !node[:kibana].nil?
-	if node[:kibana][:kibana_username].nil?
+if !node[:nginx].nil?
+	if node[:nginx][:kibana_username].nil?
 		username = "default"
 	else
-		username = node[:kibana][:kibana_username]
+		username = node[:nginx][:kibana_username]
 	end
 
-	if node[:kibana][:kibana_password].nil?
+	if node[:nginx][:kibana_password].nil?
 		password = "default"
 	else
-		password = node[:kibana][:kibana_password]
+		password = node[:nginx][:kibana_password]
 	end
 else
 	username = "default"
