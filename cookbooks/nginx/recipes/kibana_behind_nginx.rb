@@ -44,6 +44,15 @@ cookbook_file '/etc/nginx/sites-available/kibana' do
   action :create
 end
 
+#Replace nginx conf file with one that utilizes json format for logging
+cookbook_file '/etc/nginx/nginx.conf' do
+  source 'logstash_nginx.conf'
+  owner 'root'
+  group 'root'
+  mode '0744'
+  action :create
+end
+
 #Symlink into sites-enabled
 execute "ln -nfs /etc/nginx/sites-available/kibana" do
 	command "ln -nfs /etc/nginx/sites-available/kibana /etc/nginx/sites-enabled/kibana"

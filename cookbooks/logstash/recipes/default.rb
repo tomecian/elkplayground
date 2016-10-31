@@ -23,6 +23,24 @@ dpkg_package "logstash-5.0.0" do
 	source "/tmp/logstash-5.0.0.deb"
 end
 
+#Add kibana.conf logstash config file to conf.d so it knows to read the logfile
+cookbook_file '/etc/logstash/conf.d/kibana.conf' do
+  source 'kibana.conf'
+  owner 'root'
+  group 'root'
+  mode '0744'
+  action :create
+end
+
+#Add nginx_json_template.json to logstash config directory so it knows the template to use for ES
+cookbook_file '/etc/logstash/nginx_json_template.json' do
+  source 'nginx_json_template.json'
+  owner 'root'
+  group 'root'
+  mode '0744'
+  action :create
+end
+
 #Start logstash
 service "logstash" do
 	action :start
