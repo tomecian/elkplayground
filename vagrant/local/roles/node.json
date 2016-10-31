@@ -1,0 +1,21 @@
+{
+	"name": "node",
+	"default_attributes": {
+		
+	},
+	"override_attributes": {
+
+	},
+	"description": "",
+	"json_class" : "Chef::Role",
+	"chef_type" : "role",
+	"run_list" : [
+		"recipe[nginx]",
+		"recipe[nginx::apache2-utils]",
+		"recipe[jdk]",
+		"recipe[elasticsearch]",
+		"recipe[kibana]",
+		"recipe[logstash]",
+		"recipe[nginx::kibana_behind_nginx]"
+	]
+}
